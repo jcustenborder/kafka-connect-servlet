@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,12 +16,14 @@
 package com.github.jcustenborder.kafka.connect.webhook;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.io.ByteStreams;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
+import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
@@ -45,7 +47,11 @@ public class BaseWebHookTaskTest {
   }
 
   @Test
-  public void poll() throws InterruptedException {
+  public void poll() throws InterruptedException, IOException {
+
+    URL website = new URL("http://127.0.0.1:8080/test");
+    ByteStreams.copy(website.openStream(), ByteStreams.nullOutputStream());
+
     assertTimeoutPreemptively(Duration.ofSeconds(30), () -> {
       List<SourceRecord> records = this.task.poll();
       assertFalse(records.isEmpty(), "records should not be empty");

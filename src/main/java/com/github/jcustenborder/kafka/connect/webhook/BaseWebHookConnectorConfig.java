@@ -23,38 +23,34 @@ import java.util.Map;
 
 public class BaseWebHookConnectorConfig extends AbstractConfig {
   public final static String HTTPS_ENABLE_CONF = "https.enable";
-  static final String HTTPS_ENABLE_DOC = "Flag to determine if https should be enabled.";
   public final static String HTTPS_PORT_CONF = "https.port";
-  static final String HTTPS_PORT_DOC = "Port the https listener should be started on.";
   public final static String HTTP_ENABLE_CONF = "http.enable";
-  static final String HTTP_ENABLE_DOC = "Flag to determine if http should be enabled.";
   public final static String HTTP_PORT_CONF = "http.port";
-  static final String HTTP_PORT_DOC = "Port the http listener should be started on.";
   public final static String HTTP_IDLE_TIMEOUT_MS_CONF = "http.idle.timeout.ms";
-  static final String HTTP_IDLE_TIMEOUT_MS_DOC = "The number of milliseconds idle before a connection has timed out.";
-
   public final static String HTTPS_IDLE_TIMEOUT_MS_CONF = "https.idle.timeout.ms";
-  static final String HTTPS_IDLE_TIMEOUT_MS_DOC = "The number of milliseconds idle before a connection has timed out.";
-
-
   public final static String THREAD_POOL_MAX_SIZE_CONF = "thread.pool.max.size";
-  static final String THREAD_POOL_MAX_SIZE_DOC = "The maximum number of threads for the thread pool to allocate.";
   public final static String THREAD_POOL_MIN_SIZE_CONF = "thread.pool.min.size";
-  static final String THREAD_POOL_MIN_SIZE_DOC = "The minimum number of threads for the thread pool to allocate.";
   public static final String HEALTH_CHECK_ENABLE_CONF = "health.check.enable";
-  static final String HEALTH_CHECK_ENABLE_DOC = "Flag to determine if a health check url for a load balancer should be configured.";
   public static final String HEALTH_CHECK_PATH_CONF = "health.check.path";
-  static final String HEALTH_CHECK_PATH_DOC = "Path that will respond with a health check.";
-
   public static final String HTTPS_KEY_STORE_PATH_CONF = "https.key.store.path";
-  static final String HTTPS_KEY_STORE_PATH_DOC = "Path on the local filesystem that contains the ssl keystore.";
   public static final String HTTPS_KEY_STORE_PASSWORD_CONF = "https.key.store.password";
-  static final String HTTPS_KEY_STORE_PASSWORD_DOC = "The password for the ssl keystore.";
   public static final String HTTPS_KEY_MANAGER_PASSWORD_CONF = "https.key.manager.password";
-  static final String HTTPS_KEY_MANAGER_PASSWORD_DOC = "The key manager password.";
   public static final String HTTPS_TRUST_STORE_PATH_CONF = "https.trust.store.path";
-  static final String HTTPS_TRUST_STORE_PATH_DOC = "The key manager password.";
   public static final String HTTPS_TRUST_STORE_PASSWORD_CONF = "https.trust.store.password";
+  static final String HTTPS_ENABLE_DOC = "Flag to determine if https should be enabled.";
+  static final String HTTPS_PORT_DOC = "Port the https listener should be started on.";
+  static final String HTTP_ENABLE_DOC = "Flag to determine if http should be enabled.";
+  static final String HTTP_PORT_DOC = "Port the http listener should be started on.";
+  static final String HTTP_IDLE_TIMEOUT_MS_DOC = "The number of milliseconds idle before a connection has timed out.";
+  static final String HTTPS_IDLE_TIMEOUT_MS_DOC = "The number of milliseconds idle before a connection has timed out.";
+  static final String THREAD_POOL_MAX_SIZE_DOC = "The maximum number of threads for the thread pool to allocate.";
+  static final String THREAD_POOL_MIN_SIZE_DOC = "The minimum number of threads for the thread pool to allocate.";
+  static final String HEALTH_CHECK_ENABLE_DOC = "Flag to determine if a health check url for a load balancer should be configured.";
+  static final String HEALTH_CHECK_PATH_DOC = "Path that will respond with a health check.";
+  static final String HTTPS_KEY_STORE_PATH_DOC = "Path on the local filesystem that contains the ssl keystore.";
+  static final String HTTPS_KEY_STORE_PASSWORD_DOC = "The password for the ssl keystore.";
+  static final String HTTPS_KEY_MANAGER_PASSWORD_DOC = "The key manager password.";
+  static final String HTTPS_TRUST_STORE_PATH_DOC = "The key manager password.";
   static final String HTTPS_TRUST_STORE_PASSWORD_DOC = "The password for the ssl trust store.";
 
   public final boolean httpsEnable;
@@ -111,7 +107,7 @@ public class BaseWebHookConnectorConfig extends AbstractConfig {
         .define(HTTP_ENABLE_CONF, ConfigDef.Type.BOOLEAN, true, ConfigDef.Importance.HIGH, HTTP_ENABLE_DOC)
         .define(HTTP_PORT_CONF, ConfigDef.Type.INT, 8080, ValidPort.of(1000, 65535), ConfigDef.Importance.HIGH, HTTP_PORT_DOC)
         .define(HTTP_IDLE_TIMEOUT_MS_CONF, ConfigDef.Type.INT, 30000, ConfigDef.Range.between(5000, 1000 * 300), ConfigDef.Importance.LOW, HTTP_IDLE_TIMEOUT_MS_DOC)
-        
+
         .define(THREAD_POOL_MAX_SIZE_CONF, ConfigDef.Type.INT, 100, ConfigDef.Range.between(10, 1000), ConfigDef.Importance.MEDIUM, THREAD_POOL_MAX_SIZE_DOC)
         .define(THREAD_POOL_MIN_SIZE_CONF, ConfigDef.Type.INT, 10, ConfigDef.Range.between(10, 1000), ConfigDef.Importance.MEDIUM, THREAD_POOL_MIN_SIZE_DOC)
         .define(HEALTH_CHECK_ENABLE_CONF, ConfigDef.Type.BOOLEAN, true, ConfigDef.Importance.MEDIUM, HEALTH_CHECK_ENABLE_DOC)
