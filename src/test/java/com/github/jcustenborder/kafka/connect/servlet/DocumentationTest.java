@@ -13,18 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.jcustenborder.kafka.connect.webhook;
+package com.github.jcustenborder.kafka.connect.servlet;
 
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.RequestLog;
-import org.eclipse.jetty.server.Response;
-import org.eclipse.jetty.util.component.AbstractLifeCycle;
+import com.github.jcustenborder.kafka.connect.utils.BaseDocumentationTest;
 
-class KafkaConnectRequestLog extends AbstractLifeCycle implements RequestLog {
-
+public class DocumentationTest extends BaseDocumentationTest {
   @Override
-  public void log(Request request, Response response) {
-
-
+  protected String[] packages() {
+    return new String[]{this.getClass().getPackage().getName()};
   }
 }
