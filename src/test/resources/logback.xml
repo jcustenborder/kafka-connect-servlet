@@ -8,5 +8,5 @@
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
-    <logger name="com.github.jcustenborder.kafka.connect.webhook" level="TRACE" />
+    <logger name="com.github.jcustenborder.kafka.connect.servlet" level="TRACE" />
 </configuration>
