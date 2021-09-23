@@ -1,6 +1,6 @@
 # Introduction
 
-This connector is designed is designed to make the implementation of [webhook](https://en.wikipedia.org/wiki/Webhook) style connectors much easier to implement.
+This connector is designed to make the implementation of [webhook](https://en.wikipedia.org/wiki/Webhook) style connectors much easier to implement.
 This works by embedding [Jetty](http://www.eclipse.org/jetty/) and registering a [Google Guice](https://github.com/google/guice/wiki/Servlets) 
 module with your web service implementations. All of the other things you would need to do this securely are handled by 
 the base task including SSL configuration.
