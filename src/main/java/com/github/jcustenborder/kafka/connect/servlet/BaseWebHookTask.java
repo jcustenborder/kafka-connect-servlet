@@ -90,7 +90,7 @@ public abstract class BaseWebHookTask<CONFIG extends BaseWebHookConnectorConfig>
     }
 
     if (this.config.httpsEnable) {
-      SslContextFactory sslContextFactory = new SslContextFactory();
+      SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
       sslContextFactory.setKeyStorePath(this.config.httpsKeyStorePath);
       sslContextFactory.setKeyStorePassword(this.config.httpsKeyStorePassword);
       sslContextFactory.setKeyManagerPassword(this.config.httpsKeyManagerPassword);

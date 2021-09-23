@@ -43,8 +43,8 @@
         <url>https://github.com/jcustenborder/kafka-connect-servlet/issues</url>
     </issueManagement>
     <properties>
-        <guice.version>4.1.0</guice.version>
-        <jetty.version>9.2.15.v20160210</jetty.version>
+        <guice.version>5.0.1</guice.version>
+        <jetty.version>10.0.6</jetty.version>
     </properties>
     <dependencies>
         <dependency>
@@ -56,11 +56,6 @@
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-servlet</artifactId>
             <version>${guice.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-continuation</artifactId>
-            <version>${jetty.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
